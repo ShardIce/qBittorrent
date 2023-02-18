@@ -39,8 +39,8 @@ format_video = 'mkv'  # поменять контейнер c формат m4v �
 crf = 24  # Cтепень сжатия. Чем меньше число, тем лучше качество, но больше размер.
 
 # Настройки бота для телеграмм
-telegram_bot_token = '5768839040:AAEG_jv3SDjCmVvAdd2OVZ9vlvy0Q0_-ors'
-telegram_chat_id = '-833581813'
+telegram_bot_token = 'telegram_bot_token'
+telegram_chat_id = 'telegram_chat_id'
 
 # Проверьте, является ли файл видеофайлом
 def is_video_file(filename):
