@@ -30,7 +30,7 @@ COUNTRY_PATHS = {
     configs.get("AsianMovie").data: os.path.join(BASE_PATH, configs.get("asian_movie").data),
     configs.get("RusMovie").data: os.path.join(BASE_PATH, configs.get("rus_movie").data)
 }
-print(COUNTRY_PATHS)
+
 async def main():
     logging.basicConfig(filename=os.path.join(LOG_SAVE_PATH, 'movie_country_errors.log'), level=logging.ERROR)
     for filename in os.listdir(FILES_INPUT):
