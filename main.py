@@ -20,7 +20,9 @@ SCRIPT_FOLDER = configs.get("scripts_folder").data
 # Список скриптов в том порядке, в котором они должны быть импортированы
 script_names = [
     "qbitrename.py",
+    "download_poster_check.py",
     "compressed_video_files.py",
+    "movie_country.py",
 ]
 
 def run_script(script_name):
