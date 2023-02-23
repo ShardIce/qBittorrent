@@ -26,9 +26,9 @@ LOG_SAVE_PATH = os.path.join(TORRENT_PATH, configs.get("logs_dirname").data)
 ia = IMDb()
 
 COUNTRY_PATHS = {
-    configs.get("EuroMovie").data: BASE_PATH + r'\EuroMovie',
-    configs.get("AsianMovie").data: BASE_PATH + r'\AsianMovie',
-    configs.get("RusMovie").data: BASE_PATH + r'\RusMovie'
+    configs.get("EuroMovie").data: BASE_PATH + r'\\' + configs.get("euro_movie").data,
+    configs.get("AsianMovie").data: BASE_PATH + r'\\' + configs.get("asian_movie").data,
+    configs.get("RusMovie").data: BASE_PATH + r'\\' + configs.get("rus_movie").data
 }
 
 async def main():
@@ -66,7 +66,7 @@ async def main():
                         country_path = path
                         break
                 else:
-                    country_path = os.path.join(FILES_INPUT, 'Other')
+                    country_path = os.path.join(FILES_INPUT, configs.get("other_movie").data)
 
                 if not os.path.exists(country_path):
                     os.makedirs(country_path)
@@ -76,7 +76,7 @@ async def main():
                 os.rename(old_path, new_path)
 
                 bot = telegram.Bot(configs.get('APITG').data)
-                await bot.send_message(chat_id=configs.get('TGGROUP').data, text=f'Фильм "{name}" добавлен в папку {country}.')
+                await bot.send_message(chat_id=configs.get('TGGROUP').data, text=f'Фильм "{name}" добавлен в папку {os.path.basename(country_path)}.')
             except Exception as e:
                 # Записываем ошибки в лог-файл
                 logging.error(f'Error processing {filename}: {e}')
