@@ -26,11 +26,11 @@ LOG_SAVE_PATH = os.path.join(TORRENT_PATH, configs.get("logs_dirname").data)
 ia = IMDb()
 
 COUNTRY_PATHS = {
-    configs.get("EuroMovie").data: BASE_PATH + r'\\' + configs.get("euro_movie").data,
-    configs.get("AsianMovie").data: BASE_PATH + r'\\' + configs.get("asian_movie").data,
-    configs.get("RusMovie").data: BASE_PATH + r'\\' + configs.get("rus_movie").data
+    configs.get("EuroMovie").data: os.path.join(BASE_PATH, configs.get("euro_movie").data),
+    configs.get("AsianMovie").data: os.path.join(BASE_PATH, configs.get("asian_movie").data),
+    configs.get("RusMovie").data: os.path.join(BASE_PATH, configs.get("rus_movie").data)
 }
-
+print(COUNTRY_PATHS)
 async def main():
     logging.basicConfig(filename=os.path.join(LOG_SAVE_PATH, 'movie_country_errors.log'), level=logging.ERROR)
     for filename in os.listdir(FILES_INPUT):
